@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_064911) do
+ActiveRecord::Schema.define(version: 2021_10_14_232157) do
 
   create_table "categories", force: :cascade do |t|
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "move_tutorials", force: :cascade do |t|
+    t.string "name"
+    t.string "difficulty"
+    t.string "learn_time"
+    t.text "description"
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_move_tutorials_on_category_id"
+    t.index ["user_id"], name: "index_move_tutorials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,4 +39,6 @@ ActiveRecord::Schema.define(version: 2021_10_14_064911) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "move_tutorials", "categories"
+  add_foreign_key "move_tutorials", "users"
 end
