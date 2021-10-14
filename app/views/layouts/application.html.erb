@@ -8,6 +8,26 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <h1>The Break Down</h1>
+
+        <nav>
+    <% if logged_in? %>
+    Logged in as: <strong><%= current_user.email %> </strong>|
+    <a href="/">Home</a> |
+    <a href="/users/<%=current_user.id%>">Profile</a> |
+    <a href="/categories">Categories</a> |
+    <a href="/move_tutorials">View Move Tutorials</a> |
+    <a href="/move_tutorials/new">Create Move Tutorials</a> |
+    <%= link_to 'Logout', '/logout', method: "delete"%>
+    
+     
+    <% else %>
+    <a href="/">Home</a> |
+    <a href="/signup">Sign Up</a> | 
+    <a href="/login">Login</a>
+    <% end %>
+    </nav>
   </head>
 
   <body>
