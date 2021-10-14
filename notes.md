@@ -57,12 +57,12 @@ Categories
 ---------------------------
 has_many :move_tutorials  
 
- name:string  
+ type:string  
 
 notes for categories
 ------------------------
--name is unique  
--name examples(toprocks, footword, power, flips)  
+-type is unique  
+-type examples(toprocks, footword, power, flips)  
 -index page for categories showing links to move_tutorials show  
 
 Comments
