@@ -2,17 +2,11 @@
 <h1>Create a new Move Tutorial</h1>
 
 <%= form_for(@move_tutorial) do |f| %>
-<%= f.collection_select :category_id, Category.all, :id, :name%>
-or create a new category
-      <%= f.fields_for :category do |m| %>
-          <%= m.text_field :name %>
-      <datalist id="category_type">
-          <% Category.all.each do |c| %>
-         <option value = "<%= c.name %>"  ></option>
-          <% end %>
-      </datalist>
-      <br>
-      <% end %>
+  <%= f.label "Category:" %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_blank: true %>
+  <%= f.fields_for :categories, @move_tutorial.categories.build do |categories_fields| %>
+    <%= categories_fields.text_field :name %>
+  <% end %>
 
 
 <%= f.label :name %>
