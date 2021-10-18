@@ -13,7 +13,7 @@ difficulty:string
 learn_time:string  
 description:text  
 user:belongs_to  
-category:belongs_to  
+category:belongs_to 
 
 
 move_tutorials notes
@@ -148,6 +148,7 @@ User Story
 -i can view all my move tutorials  
 -i can view move_tutorials i commented on  
 -other users can view my profile if logged in  
+-i should be able to haves links to edit or delete profile
 
 /move_tutorials/new && categories/:id/move_tutorials/new  
 -as a user  
@@ -164,6 +165,8 @@ User Story
 -i can click on links and be redirected to move_tutorials show page  
 -i can click on a link taking me to create my own move_tutorial  
 --show nested view mulitple move tutorials with who created it  
+
+
 
 /move_tutorials/:id  
 -as a user  

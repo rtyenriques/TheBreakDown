@@ -1,0 +1,27 @@
+<br>
+<h1>Create a new Move Tutorial</h1>
+
+<%= form_for(@move_tutorial) do |f| %>
+<%= f.collection_select :category_id, Category.all, :id, :name%>
+or create a new category
+      <%= f.fields_for :category do |m| %>
+          <%= m.text_field :name %>
+      <datalist id="category_type">
+          <% Category.all.each do |c| %>
+         <option value = "<%= c.name %>"  ></option>
+          <% end %>
+      </datalist>
+      <br>
+      <% end %>
+
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%- f.label :difficulty %>
+Difficulty<%= f.text_field :difficulty %>
+<%= f.label :learn_time %>
+<%= f.text_field :learn_time %>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<%= f.submit 'Create Move Tutorial' %>
+<%end%>
