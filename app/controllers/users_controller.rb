@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-    after_action :authorized, only: [:create]
+    # after_action :authorized, only: [:create]
     def new
+        @user = User.new
         
 
     end

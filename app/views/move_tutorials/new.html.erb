@@ -3,10 +3,8 @@
 
 <%= form_for(@move_tutorial) do |f| %>
   <%= f.label "Category:" %>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_blank: true %>
-  <%= f.fields_for :categories, @move_tutorial.categories.build do |categories_fields| %>
-    <%= categories_fields.text_field :name %>
-  <% end %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+
 
 
 <%= f.label :name %>

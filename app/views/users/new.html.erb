@@ -1,4 +1,16 @@
-<%=form_for :user do |f|%>
+<%=form_for @user do |f|%>
+<% if @user.errors.any?%>
+<div id = 'error_explanation'>
+<h2>There were errors:</h2>
+<ul>
+<% @user.errors.full_messages.each do |m|%>
+<li><%= m %></li>
+<%end%>
+</ul>
+</div>
+<%end%>
+<div class = "field<%= 'field_with_errors' if @user.errors[:name].any? %>">
+
 <%= f.label :email%>
 <%= f.text_field :email%><br>
 <%= f.label :username%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_191026) do
+ActiveRecord::Schema.define(version: 2021_10_18_220121) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -28,15 +28,6 @@ ActiveRecord::Schema.define(version: 2021_10_18_191026) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["move_tutorial_id"], name: "index_comments_on_move_tutorial_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "move_categories", force: :cascade do |t|
-    t.integer "move_tutorial_id", null: false
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_move_categories_on_category_id"
-    t.index ["move_tutorial_id"], name: "index_move_categories_on_move_tutorial_id"
   end
 
   create_table "move_tutorials", force: :cascade do |t|
@@ -62,8 +53,6 @@ ActiveRecord::Schema.define(version: 2021_10_18_191026) do
 
   add_foreign_key "comments", "move_tutorials"
   add_foreign_key "comments", "users"
-  add_foreign_key "move_categories", "categories"
-  add_foreign_key "move_categories", "move_tutorials"
   add_foreign_key "move_tutorials", "categories"
   add_foreign_key "move_tutorials", "users"
 end
