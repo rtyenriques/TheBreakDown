@@ -17,7 +17,9 @@ class MoveTutorialsController < ApplicationController
     
         # @move_tutorial.user_id = session[:user_id]
         @move_tutorial.user_id = current_user.id
+
         if @move_tutorial.save
+            current_user.move_tutorials << @move_tutorial
             redirect_to @move_tutorial
         else
             render :new
@@ -35,6 +37,12 @@ class MoveTutorialsController < ApplicationController
 
         end
 
+
+        def destroy
+            @move = MoveTutorial.find_by_id(params[:id]).destroy
+            redirect_to move_tutorials_path
+
+        end
     private
 
     def move_params

@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     def authorized
       redirect_to '/' unless logged_in?
     end
+
+    def unauthorized_user
+      flash[:notice] = "!!!You are not authorized to edit this combo!!!"
+    end
 end

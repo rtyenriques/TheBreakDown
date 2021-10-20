@@ -1,7 +1,8 @@
 <h2><%=@move.name.capitalize %></h2>
+<%= @move.category.name%>
 
 <% if @move.user_id == @user%>
 <%= link_to 'edit'%>
-<%= link_to 'delete'%>
+<%= link_to 'delete', move_tutorial_path(@move), method: :delete%>
 
 <%end%>

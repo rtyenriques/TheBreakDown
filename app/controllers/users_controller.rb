@@ -29,15 +29,16 @@ class UsersController < ApplicationController
     end
 
     def edit
+        
         set_user
 
     end
 
     def update
         set_user
-        if   @user.authenticate(params[:user][:password])
+        # if   @user.authenticate(params[:user][:password])
             @user.update(user_params)
-    
+    if @user.valid?
       
         redirect_to profile_path(@user)
         
@@ -50,6 +51,19 @@ class UsersController < ApplicationController
 
     end
 
+    def destroy
+      
+        set_user
+        @user.move_tutorials.each do |m|
+            m.destroy
+        end
+        @user.destroy   
+        # @user.categories.destroy
+        # @user.move_tutorials.destroy
+        # @user.destroy
+        session[:user_id] = nil
+        redirect_to '/'
+    end
     
 
     private
@@ -60,7 +74,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:email, :username, :password, :password_confirmation)
+        params.require(:user).permit(:id,:email, :username, :password, :password_confirmation)
 
     end
 end
