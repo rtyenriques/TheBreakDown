@@ -1,6 +1,6 @@
 <% @move_tutorials.each do |m|%>
 <ul>
 
-<li><%=link_to m.name, move_tutorial_path(m)%></li>
+<li><%=link_to m.name, move_tutorial_path(m)%> by:<%=link_to m.user.username, profile_path(m.user)%></li>
 </ul>
 <%end%>

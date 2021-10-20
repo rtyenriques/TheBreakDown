@@ -1,1 +1,9 @@
+<%= @user.username %>
+
+
+<% if @user.id == @session%>
+<%= link_to 'edit'%>
+<%= link_to 'delete'%>
+
+<%end%>
 <%=link_to 'Log Out', "/logout", method: :delete %>

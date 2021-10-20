@@ -22,10 +22,14 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by_id(params[:id])
         authorized
+        @user = User.find_by_id(params[:id])
+        @session = session[:user_id]
+        # authorized
 
     end
+
+    
 
     private
 
