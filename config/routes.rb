@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
   get '/home', to: 'welcome#home'
 
-  get '/signup', to: 'users#new', as: 'user'
+  get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/profile/:id', to: 'users#show', as: 'profile'
 

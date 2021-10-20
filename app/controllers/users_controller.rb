@@ -23,15 +23,41 @@ class UsersController < ApplicationController
 
     def show
         authorized
-        @user = User.find_by_id(params[:id])
+        set_user
         @session = session[:user_id]
-        # authorized
+     
+    end
+
+    def edit
+        set_user
+
+    end
+
+    def update
+        set_user
+        if   @user.authenticate(params[:user][:password])
+            @user.update(user_params)
+    
+      
+        redirect_to profile_path(@user)
+        
+    else
+        
+        flash.now[:notice] = "Please make sure all filelds are correct."
+        render :edit
+    end
+    
 
     end
 
     
 
     private
+
+    def set_user
+        @user = User.find_by_id(params[:id])
+
+    end
 
     def user_params
         params.require(:user).permit(:email, :username, :password, :password_confirmation)
