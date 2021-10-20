@@ -7,4 +7,5 @@ class User < ApplicationRecord
     has_many :categories, through: :move_tutorials 
 
     validates :username, :email, uniqueness: true
+    validates :username, :email, presence: true
 end

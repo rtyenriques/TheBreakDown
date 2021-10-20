@@ -1,3 +1,6 @@
 <% @move_tutorials.each do |m|%>
-<%=m.name%>
+<ul>
+
+<li><%=link_to m.name, move_tutorial_path(m)%></li>
+</ul>
 <%end%>

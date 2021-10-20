@@ -4,6 +4,17 @@
 <%= form_for(@move_tutorial) do |f| %>
   <%= f.label "Category:" %>
   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+    <div>
+      <%= f.fields_for :category do |m| %>
+          <%= m.text_field :name %>
+      <datalist id="category_name">
+          <% Category.all.each do |c| %>
+         <option value = "<%= c.name %>"  ></option>
+          <% end %>
+      </datalist>
+      <br>
+      <% end %>
+  </div>
 
 
 

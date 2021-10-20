@@ -1,0 +1,7 @@
+<h2><%=@move.name.capitalize %></h2>
+
+<% if @move.user_id == @user%>
+<%= link_to 'edit'%>
+<%= link_to 'delete'%>
+
+<%end%>

@@ -1,4 +1,6 @@
 <%= form_for :user do |f|%>
+
+
 <p> Find Username<%= f.collection_select :user_id, User.all, :id, :username%></p>
 <p>Password:<%= f.password_field :password%></p>
 <p>Password Confirmation:<%= f.password_field :password_confirmation%></p>
