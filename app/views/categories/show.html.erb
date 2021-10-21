@@ -1,0 +1,4 @@
+<h1><%= @category.name %></h1>
+<% @category.move_tutorials.each do |m|%>
+<%= link_to m.name, move_tutorial_path(m) %>
+<%end%>

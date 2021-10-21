@@ -212,7 +212,19 @@ User Story
 3    <p><%= e %></p> <br>
 4    <% end %>
 5  <% end %>
-
+ 
+ #code to create category in movetutorial/new
+  <div>
+      <%= f.fields_for :category do |m| %>
+          <%= m.text_field :name %>
+      <datalist id="category_name">
+          <% Category.all.each do |c| %>
+         <option value = "<%= c.name %>"  ></option>
+          <% end %>
+      </datalist>
+      <br>
+      <% end %>
+  </div>
 
 
 

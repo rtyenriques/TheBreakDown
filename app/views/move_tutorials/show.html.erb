@@ -1,6 +1,12 @@
 <h2><%=@move.name.capitalize %></h2>
-<%= @move.category.name%>
+Category: <%= link_to @move.category.name, category_path(@move.category)%><br>
+Difficulty: <%= @move.difficulty%><br>
+Learn Time: <%= @move.learn_time%><br>
+Desciption: <%= @move.description%><br>
 
+ 
+
+<br>
 <% if @move.user_id == @user%>
 <%= link_to 'edit'%>
 <%= link_to 'delete', move_tutorial_path(@move), method: :delete%>

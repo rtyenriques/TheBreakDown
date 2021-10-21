@@ -6,6 +6,7 @@ class MoveTutorialsController < ApplicationController
     end
     def new
         @move_tutorial = MoveTutorial.new
+       
         @move_tutorial.build_category
     
        
@@ -40,6 +41,7 @@ class MoveTutorialsController < ApplicationController
 
         def destroy
             @move = MoveTutorial.find_by_id(params[:id]).destroy
+           
             redirect_to move_tutorials_path
 
         end
