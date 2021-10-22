@@ -4,6 +4,6 @@
 <ul>
 
 <li><%=link_to m.name, move_tutorial_path(m)%> by: <%=link_to m.user.username, profile_path(m.user)%> <br>
-Created on: <%= m.created_at%></li>
+Created on: <%= m.created_at.strftime("%B %d, %Y at %H:%M")%></li>
 </ul>
 <%end%>
