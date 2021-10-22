@@ -32,8 +32,15 @@ class MoveTutorialsController < ApplicationController
 
         def show
             
-            @move = MoveTutorial.find(params[:id])
+            if @category = Category.find_by_id(params[:category_id])
+            
+            @move = MoveTutorial.find_by_id(params[:id])
             @user = session[:user_id]
+            else
+                @move = MoveTutorial.find_by_id(params[:id])
+                @user = session[:user_id]
+                @comment = Comment.new
+            end
            
 
         end

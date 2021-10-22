@@ -4,21 +4,27 @@ Difficulty: <%= @move.difficulty%><br>
 Learn Time: <%= @move.learn_time%><br>
 Desciption: <%= @move.description%><br>
 
+
 <%= link_to 'add a comment', new_move_tutorial_comment_path(@move)%>
+
+<%= link_to 'add a comment', new_category_move_tutorial_comment_path(@move.category, @move.id) %>
 
 
 <% @move.comments.each do |c|%>
 <%=c.user.username%>
 <%end%>
 
-<h2>Post a comment</h2>
+
+<%# need to add a url path so comment can be sent from move_tutorials show page
+,  :url => new_move_tutorial_comment_path(@move, @comment)  %>
+<h2>Post a comment </h2>
 <%=form_for :comment do |f|%>
 <%= f.hidden_field :move_tutorial_id%><br>
 <%= f.text_field :title%><br>
 
 <%-f.text_area :content, size: "50x10"%>
 <%= f.number_field :rating%><br>
-<%= f.submit 'Create Comment'%>
+<%= f.submit 'Create Comment',  method: :create%>
 
 
 <%end%>

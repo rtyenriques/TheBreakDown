@@ -20,7 +20,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    resources :move_tutorials do
+      resources :comments
+    end
+  end
+
+  
+
   
 
 end

@@ -17,15 +17,15 @@
   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
   
 
-
+<br>
 
 <%= f.label :name %>
-<%= f.text_field :name %>
+<%= f.text_field :name %><br>
 <%- f.label :difficulty %>
-Difficulty<%= f.text_field :difficulty %>
+Difficulty<%= f.text_field :difficulty %><br>
 <%= f.label :learn_time %>
-<%= f.text_field :learn_time %>
+<%= f.text_field :learn_time %><br>
 <%= f.label :description %>
-<%= f.text_area :description %>
+<%= f.text_area :description %><br>
 <%= f.submit 'Create Move Tutorial' %>
 <%end%>
