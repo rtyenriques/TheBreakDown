@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete "/logout", to: "sessions#destroy"
 
-  post "/move_tutorials/13/comments/new", to: "comments#create"
+  post "/move_tutorials/:id/comments/new", to: "comments#create"
+  post "/categories/:id//move_tutorials/:id/comments/new", to: "comments#create"
+  post "/users/:id/move_tutorials/:id", to: "comments#create"
+  post "/comments/new", to: "comments#create"
+
+
+  resources :comments
 
   resources :users do
     resources :move_tutorials

@@ -1,4 +1,6 @@
 <h1><%= @category.name %></h1>
 <% @category.move_tutorials.each do |m|%>
 <%= link_to m.name, category_move_tutorial_path(@category, m) %> by: <%=link_to m.user.username, profile_path(m.user.id)%>
-<%end%>
+<%end%><br>
+
+<br><%= link_to "Create a New Move Tutorial", new_category_move_tutorial_path(@category)%>

@@ -2,17 +2,22 @@ class CommentsController < ApplicationController
 
     def new
         
-       if @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+       if @category = Category.find_by_id(params[:category_id])
+        @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
             @comment = @move_tutorial.comments.build
        else
+        @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
         @comment = Comment.new
+       
        end
 
     end
 
     def create 
+        
         @comment = Comment.new(comment_params)
         @comment.user_id = session[:user_id]
+        @comment.move_tutorial_id = params[:id]
         if @comment.save
             redirect_to move_tutorial_path(@comment.move_tutorial_id)
         else

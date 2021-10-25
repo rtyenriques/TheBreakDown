@@ -114,6 +114,7 @@ Create wireframing
 navbar  
 home, about, signup, login(if logged out), logout(if logged in), move_tutorials, categories
 
+user who created move tutorial can reply to a comment
 ----------------------------------------
 
 User Story

@@ -32,6 +32,7 @@ class MoveTutorialsController < ApplicationController
 
         def show
             
+        
             if @category = Category.find_by_id(params[:category_id])
             
             @move = MoveTutorial.find_by_id(params[:id])

@@ -1,10 +1,10 @@
 <h2>Post a comment</h2>
 <%=form_for :comment do |f|%>
 <%= f.hidden_field :move_tutorial_id%><br>
-<%= f.text_field :title%><br>
+Title<%= f.text_field :title%><br>
 
-<%-f.text_area :content, size: "50x10"%>
-<%= f.number_field :rating%><br>
+Content<%=f.text_area :content, size: "50x10" %><br>
+Rating<%= f.number_field :rating%><br>
 <%= f.submit 'Create Comment'%>
 
 

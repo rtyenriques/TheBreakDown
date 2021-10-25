@@ -1,11 +1,25 @@
-<h2>Welcome <%= @user.username %></h2>
-
-
+<h2>Welcome <%= @user.username.capitalize %></h2>
 
 <% if @user.id == @session%>
 <%= link_to 'edit', edit_user_path%>
 <%= link_to 'delete', user_path(@user), method: :delete, data: {confirm: "really"} %>
-
-
 <%end%>
-<%=link_to 'Log Out', "/logout", method: :delete %>
+
+
+<h3>Moves Tutorials Created By You</h3>
+<%@user.move_tutorials.each do |m|%>
+<li><%=link_to m.name, user_move_tutorial_path(@user.id, m.id)%></li>
+<%end%>
+
+<h3>Your Comments</h3>
+<% @user.comments.each do |c|%>
+<ul>
+<li><%= c.title %></li>
+<li><%= c.move_tutorial.name%></li>
+</ul>
+<%end%>
+
+<br><%=link_to 'Log Out', "/logout", method: :delete %>
+
+<%# create a new move create a new comment from comment new page no nest and see if it shows up as new instance
+on user show page %>
