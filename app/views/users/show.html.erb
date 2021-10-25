@@ -6,10 +6,13 @@
 <%end%>
 
 
+
 <h3>Moves Tutorials Created By You</h3>
-<%@user.move_tutorials.each do |m|%>
+<%@user.move_tutorials.uniq.each do |m|%>
 <li><%=link_to m.name, user_move_tutorial_path(@user.id, m.id)%></li>
 <%end%>
+
+
 
 <h3>Your Comments</h3>
 <% @user.comments.each do |c|%>

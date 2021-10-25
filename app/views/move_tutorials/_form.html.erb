@@ -1,0 +1,31 @@
+<br>
+<h1>Create a new Move Tutorial</h1>
+
+<%= form_for(@move_tutorial) do |f| %>
+<% if @move_tutorial.errors.any?%>
+<div id = 'error_explanation'>
+<h2>There were errors:</h2>
+<ul>
+<% @move_tutorial.errors.full_messages.each do |m|%>
+<li><%= m %></li>
+<%end%>
+</ul>
+</div>
+<%end%>
+<div class = "field<%= 'field_with_errors' if @move_tutorial.errors.any? %>">
+  <%= f.label "Category:" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  
+
+<br>
+
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%- f.label :difficulty %>
+Difficulty<%= f.text_field :difficulty %><br>
+<%= f.label :learn_time %>
+<%= f.text_field :learn_time %><br>
+<%= f.label :description %>
+<%= f.text_area :description, size: "50x10"  %><br>
+<%= f.submit  %>
+<%end%>

@@ -43,7 +43,7 @@ Desciption: <%= @move.description%><br>
 
 <br>
 <% if @move.user_id == @user%>
-<%= link_to 'edit'%>
+<%= link_to 'edit', edit_move_tutorial_path(@move)%>
 <%= link_to 'delete', move_tutorial_path(@move), method: :delete%>
 
 <%end%>

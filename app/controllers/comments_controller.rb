@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
             @comment = @move_tutorial.comments.build
        else
-        @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+        # @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
         @comment = Comment.new
        
        end
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
         
         @comment = Comment.new(comment_params)
         @comment.user_id = session[:user_id]
-        @comment.move_tutorial_id = params[:id]
+        # @comment.move_tutorial_id = params[:id]
         if @comment.save
             redirect_to move_tutorial_path(@comment.move_tutorial_id)
         else
