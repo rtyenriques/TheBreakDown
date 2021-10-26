@@ -6,7 +6,6 @@ class MoveTutorialsController < ApplicationController
 
     def new
         @move_tutorial = MoveTutorial.new
-        @move_tutorial.build_category
      end
 
     def create
@@ -14,7 +13,7 @@ class MoveTutorialsController < ApplicationController
         # @move_tutorial.user_id = session[:user_id]
         @move_tutorial.user_id = current_user.id
           if @move_tutorial.save
-            current_user.move_tutorials << @move_tutorial
+            # @move_tutorial.user_id  << @move_tutorial
             redirect_to @move_tutorial
           else
             render :new

@@ -3,11 +3,11 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :delete]
 
     def new
-        if logged_in?
-            redirect_to profile_path(session[:user_id])
-        else
+        # if logged_in?
+        #     redirect_to profile_path(session[:user_id])
+        # else
         @user = User.new
-        end
+        # end
         
 
     end
@@ -27,8 +27,10 @@ class UsersController < ApplicationController
     end
 
     def show
+    
         authorized
-        
+        @move_tutorials = MoveTutorial.all
+    #   byebug
         @session = session[:user_id]
      
     end

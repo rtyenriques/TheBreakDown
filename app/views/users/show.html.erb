@@ -5,9 +5,15 @@
 <%= link_to 'delete', user_path(@user), method: :delete, data: {confirm: "really"} %>
 <%end%>
 
+<h4>Moves you created</h4>
+<% @move_tutorials.each do |m|%>
+<% if m.user_id == @user.id %>
+<%=m.name%>
+<%end%>
+<%end%>
 
 
-<h3>Moves Tutorials Created By You</h3>
+<h3>Moves Tutorials you commented on</h3>
 <%@user.move_tutorials.uniq.each do |m|%>
 <li><%=link_to m.name, user_move_tutorial_path(@user.id, m.id)%></li>
 <%end%>
