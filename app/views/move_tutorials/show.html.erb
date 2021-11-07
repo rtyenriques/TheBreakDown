@@ -24,7 +24,7 @@ Rating:<%= f.number_field :rating, :placeholder => 'number from 1-5'%>
 <%end%>
 
 
-<% if @move.comments.count < 1%>
+<% if @move.comments.count < 2%>
 <p>There is <%= pluralize(@move.comments.count, 'comment')%></p>
 <%else%>
 <p>There are <%= pluralize(@move.comments.count, 'comment')%></p>

@@ -260,6 +260,11 @@ User Story
 <%= link_to 'add a comment', new_move_tutorial_comment_path(@move)%>
 <%end%>
 
+  # post "/move_tutorials/:id/comments/new", to: "comments#create"
+  # post "/categories/:id//move_tutorials/:id/comments/new", to: "comments#create"
+  # post "/users/:id/move_tutorials/:id", to: "comments#create"
+  # post "/comments/new", to: "comments#create"
+
 
 client id 648869838446-42kltonlumer6et0d7300bfso8j07h0p.apps.googleusercontent.com
 secret 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

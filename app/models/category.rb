@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
     
-    has_many :move_tutorials
+  has_many :move_tutorials
   
 end

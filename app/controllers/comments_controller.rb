@@ -39,16 +39,13 @@ class CommentsController < ApplicationController
     def index
         @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
         @comments = Comment.all
-        
-    end
+     end
 
-    def create
-        
+    def create  
       comment = Comment.new(comment_params)
       comment.user_id = session[:user_id]
-    
       if comment.save
-      redirect_to move_tutorial_comments_path(comment.move_tutorial_id)
+        redirect_to move_tutorial_comments_path(comment.move_tutorial_id)
       else
         redirect_to '/home'
       end

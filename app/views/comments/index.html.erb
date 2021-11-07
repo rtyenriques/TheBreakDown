@@ -1,5 +1,7 @@
 <br><%= link_to 'go back to move tutorial', move_tutorial_path(params[:move_tutorial_id])%>
 
+<br>
+<h2>Comments for <%=@move_tutorial.name.capitalize%></h2>
 
 <% @comments.each do |c|%>
 <% if c.move_tutorial_id == params[:move_tutorial_id]%>
@@ -13,10 +15,6 @@
 <p><%= c.title%><br>
 <%= c.content%><br>
 <%= c.rating%><br>
-<%= "by: #{c.user.username}"%></p>
-
-
-
-
+<%="by: #{c.user.username}"%></p>
 
 <%end%>
