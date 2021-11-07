@@ -1,12 +1,12 @@
         <nav>
     <% if logged_in? %>
-    Logged in as: <strong><%= current_user.email %> </strong><br>
-    <a href="/">Home</a> |
+    <center>Logged in as: <strong><%= current_user.email %> </strong><br></center><br>
+    <center><a href="/">Home</a> |
     <a href="/users/<%=current_user.id%>">Profile</a> |
     <a href="/categories">Categories</a> |
     <a href="/move_tutorials">View Move Tutorials</a> |
     <a href="/move_tutorials/new">Create Move Tutorials</a> |
-    <%= link_to 'Logout', '/logout', method: "delete"%>
+    <%= link_to 'Logout', '/logout', method: "delete"%></center>
     
      
     <% else %>

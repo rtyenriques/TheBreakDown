@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?, :current_user
+    helper_method :logged_in?, :current_user, :create_session
 
     def current_user
       if session[:user_id]
@@ -17,5 +17,9 @@ class ApplicationController < ActionController::Base
 
     def unauthorized_user
       flash[:notice] = "!!!You are not authorized to edit this!!"
+    end
+
+    def create_session
+      session[:user_id] = @user.id
     end
 end

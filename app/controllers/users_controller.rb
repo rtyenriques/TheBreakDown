@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     # after_action :authorized, only: [:create]
-    before_action :set_user, only: [:show, :edit, :update, :delete]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def new
         # if logged_in?
@@ -58,16 +58,27 @@ class UsersController < ApplicationController
     end
 
     def destroy
-      
-        
-        @user.move_tutorials.each do |m|
-            m.destroy
-        end
-        @user.destroy   
-      
-        session[:user_id] = nil
-        
+       
+        # @user.move_tutorials.each do |m|
+        #     m.destroy
+        # end
+        # @user.move_tutorials.destroy
+        @user.destroy
+         session[:user_id] = nil
         redirect_to '/'
+      
+    #     if @user.move_tutorials.blank?
+    #     @user.destroy   
+    #      session[:user_id] = nil
+    #     redirect_to '/'
+    # else
+    #     @user.move_tutorials.each do |m|
+    #         m.destroy
+    #       end
+    #     @user.destroy   
+    #      session[:user_id] = nil
+    #     redirect_to '/'
+    #     end
     end
     
 
@@ -79,7 +90,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:id,:email, :username, :password, :password_confirmation)
+        params.require(:user).permit(:id, :email, :username, :password, :password_confirmation)
 
     end
 end

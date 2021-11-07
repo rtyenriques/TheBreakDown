@@ -1,0 +1,22 @@
+<br><%= link_to 'go back to move tutorial', move_tutorial_path(params[:move_tutorial_id])%>
+
+
+<% @comments.each do |c|%>
+<% if c.move_tutorial_id == params[:move_tutorial_id]%>
+<%= c.title %>
+<%else%>
+
+<%end%>
+<%end%>
+
+<% @move_tutorial.comments.each do |c|%>
+<p><%= c.title%><br>
+<%= c.content%><br>
+<%= c.rating%><br>
+<%= "by: #{c.user.username}"%></p>
+
+
+
+
+
+<%end%>

@@ -80,6 +80,7 @@ notes for comments
 --------------
 -rating is an integer that can only use 1-5  
 -collection_select for ratings  
+-validates length for content  
 
 Project Requirements
 ----------------------------
@@ -253,5 +254,12 @@ User Story
 <%end%>
 
 
+<% if params[:category_id] = @move.category_id%>
+<%= link_to 'add a comment', new_category_move_tutorial_comment_path(@move.category, @move.id) %>
+<% else %>
+<%= link_to 'add a comment', new_move_tutorial_comment_path(@move)%>
+<%end%>
 
 
+client id 648869838446-42kltonlumer6et0d7300bfso8j07h0p.apps.googleusercontent.com
+secret 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

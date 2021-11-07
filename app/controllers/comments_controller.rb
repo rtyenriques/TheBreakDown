@@ -36,12 +36,19 @@
 
 class CommentsController < ApplicationController
 
+    def index
+        @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+        @comments = Comment.all
+        
+    end
+
     def create
-        # byebug
+        
       comment = Comment.new(comment_params)
       comment.user_id = session[:user_id]
+    
       if comment.save
-      redirect_to move_tutorial_path(comment.move_tutorial_id)
+      redirect_to move_tutorial_comments_path(comment.move_tutorial_id)
       else
         redirect_to '/home'
       end
@@ -50,7 +57,7 @@ class CommentsController < ApplicationController
     private
   
     def comment_params
-      params.require(:comment).permit(:title, :rating, :content, :move_tutorial_id, :user_id, user_attributes:[:username, :email])
+      params.require(:comment).permit(:title, :rating, :content, :move_tutorial_id, :user_id, user_attributes:[:username, :email], move_tutorial_attributes:[:name])
     end
   end
   

@@ -6,16 +6,17 @@
 <%end%>
 
 <h4>Moves you created</h4>
+<ul>
 <% @move_tutorials.each do |m|%>
 <% if m.user_id == @user.id %>
-<%=m.name%>
+<li><%=link_to m.name, move_tutorial_path(m)%></li>
 <%end%>
 <%end%>
-
+</ul>
 
 <h3>Moves Tutorials you commented on</h3>
-<%@user.move_tutorials.uniq.each do |m|%>
-<li><%=link_to m.name, user_move_tutorial_path(@user.id, m.id)%></li>
+<%@user.comments.each do |m|%>
+<li><%=link_to m.move_tutorial.name, user_move_tutorial_path(@user.id, m.id)%></li>
 <%end%>
 
 

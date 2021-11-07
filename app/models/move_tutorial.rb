@@ -1,12 +1,12 @@
 class MoveTutorial < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :users, through: :comments
    has_many :comments, dependent: :destroy
-  
-  #  has_many :users, through: :comments
-  
+
   
     accepts_nested_attributes_for :category, reject_if: :all_blank
+    accepts_nested_attributes_for :comments
     # accepts_nested_attributes_for :comments
   
     
@@ -19,14 +19,14 @@ class MoveTutorial < ApplicationRecord
     #   self.category = category
     # end
   
-    def comment_attributes=(ca)
-      ca.values.each do |c|
-        com = Comment.find_or_create_by(c)
+    # def comment_attributes=(ca)
+    #   ca.values.each do |c|
+    #     com = Comment.find_or_create_by(c)
         
-        self.comment_attributes.build(comment:com)
-      end
+    #     self.comment_attributes.build(comment:com)
+    #   end
   
   
-    end
+    # end
   end
   
