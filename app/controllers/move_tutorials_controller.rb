@@ -27,8 +27,18 @@ class MoveTutorialsController < ApplicationController
         end
 
         def edit
+            # byebug
+            if logged_in? && @move_tutorial.user_id == current_user.id
+                render :edit
+            else
+                unauthorized_user
+                # redirect_to move_tutorial_path(@move_tutorial)
+            end
            
         end
+
+
+
 
         def update
            
@@ -46,7 +56,7 @@ class MoveTutorialsController < ApplicationController
          end
 
          def beginner
-            @move_tutorial = MoveTutorial.difficulty_beginner
+            @move_tutorials = MoveTutorial.difficulty_beginner
 
          end
 

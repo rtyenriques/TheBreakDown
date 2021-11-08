@@ -3,7 +3,7 @@
 <% @move_tutorials.each do |m|%>
 <ul>
 
-<li><%=link_to m.name, move_tutorial_path(m)%> by: <%=link_to m.user.username, profile_path(m.user)%> <br>
+<li><%=link_to m.name, move_tutorial_path(m)%> by: <%=m.user.username%> <br>
 Created on: <%= m.created_at.strftime("%B %d, %Y at %H:%M")%></li>
 </ul>
 <%end%>

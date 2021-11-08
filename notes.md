@@ -265,6 +265,8 @@ User Story
   # post "/users/:id/move_tutorials/:id", to: "comments#create"
   # post "/comments/new", to: "comments#create"
 
+  <%=link_to m.user.username, profile_path(m.user)%>
+
 
 client id 648869838446-42kltonlumer6et0d7300bfso8j07h0p.apps.googleusercontent.com
 secret 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

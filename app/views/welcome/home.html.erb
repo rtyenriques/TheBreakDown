@@ -1,11 +1,13 @@
 <center><h1>Welcome to The Break Down</h1></center>
 
+<% flash.each do |type, msg| %>
+<%= msg %>
+<%end%>
+
+
 <% if logged_in? %>
 <p>You can now create your own move tutorials and comment on others!</p>
 <% else%>
-<%= button_to "Sign in with Google", '/auth/google_oauth2'  %>
-<%end%>
-<% flash.each do |type, msg| %>
-<%= msg %>
+<p>Please sign up or login to continue to access this website</p>
 <%end%>
 
