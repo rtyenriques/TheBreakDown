@@ -1,9 +1,9 @@
 class MoveTutorialsController < ApplicationController
     before_action :set_moves, only: [:show, :edit, :update, :destroy]
-
+    before_action :authorized
 
     def index
-        @move_tutorials = MoveTutorial.all
+       @move_tutorials = MoveTutorial.all
     end
 
     def new
@@ -23,12 +23,15 @@ class MoveTutorialsController < ApplicationController
 
         def show
           @user = session[:user_id]
+          
         end
 
         def edit
+           
         end
 
         def update
+           
           if @move_tutorial.update(move_params)
             redirect_to move_tutorial_path(@move_tutorial.id)
           else
@@ -38,14 +41,19 @@ class MoveTutorialsController < ApplicationController
         end
 
         def destroy
-            @move = MoveTutorial.find_by_id(params[:id]).destroy
+            @move_tutorial.destroy
             redirect_to move_tutorials_path
+         end
+
+         def beginner
+            @move_tutorial = MoveTutorial.difficulty_beginner
+
          end
 
     private
 
     def set_moves
-        @move = MoveTutorial.find_by_id(params[:id])    
+        @move_tutorial = MoveTutorial.find_by_id(params[:id])    
      end
 
     def move_params

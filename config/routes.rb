@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # get '/auth/:provider/callback' => 'sessions#omniauth'
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
+  get '/beginner_moves', to: 'move_tutorials#beginner'
+
   root to: 'welcome#home'
   get '/home', to: 'welcome#home'
 

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     def create
        @user = User.find_by(id: params[:user][:user_id])
        if @user.nil?
-       # flash[:error] = "Sorry, log info was incorrect. Please try again."
+      #  flash[:error] = "Sorry, log info was incorrect. Please try again."
        redirect_to '/login'
       elsif
         params[:provider] == 'google_oauth2'
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
         create_session
         redirect_to profile_path(@user.id)
       else
+        # flash[:error] = "Sorry, log info was incorrect. Please try again."
         return head(:forbidden) unless 
         @user.authenticate(params[:user][:password]) 
         create_session

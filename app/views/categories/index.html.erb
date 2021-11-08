@@ -3,8 +3,8 @@
 <p>The categories are preset but if you see a category that you think shoud be persisted please email us at thebreakdown@gmail.com</p>
 
 
-<ul
-><% @categories.each do |c|%>
+<ul>
+<% @categories.each do |c|%>
 <li><%= link_to c.name, category_path(c) %></li>
 <%end%>
 </ul>

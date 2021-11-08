@@ -1,13 +1,13 @@
-<h2><%=@move.name.capitalize %></h2>
+<h2><%=@move_tutorial.name.capitalize %></h2>
 
-Category: <%= link_to @move.category.name, category_path(@move.category)%><br>
-Difficulty: <%= @move.difficulty%><br>
-Learn Time: <%= @move.learn_time%><br>
-Desciption: <%= @move.description%><br>
+Category: <%= link_to @move_tutorial.category.name, category_path(@move_tutorial.category)%><br>
+Difficulty: <%= @move_tutorial.difficulty%><br>
+Learn Time: <%= @move_tutorial.learn_time%><br>
+Desciption: <%= @move_tutorial.description%><br>
 
-<% if @move.user_id == @user%>
-<%= link_to 'edit', edit_move_tutorial_path(@move)%>
-<%= link_to 'delete', move_tutorial_path(@move), method: :delete%>
+<% if @move_tutorial.user_id == @user%>
+<%= link_to 'edit', edit_move_tutorial_path(@move_tutorial)%>
+<%= link_to 'delete', move_tutorial_path(@move_tutorial), method: :delete%>
 
 <%end%>
 
@@ -15,7 +15,7 @@ Desciption: <%= @move.description%><br>
 
 <h4>Add a comment</h4>
 
-<%= form_for @move.comments.build do |f|%>
+<%= form_for @move_tutorial.comments.build do |f|%>
 <%=f.hidden_field :move_tutorial_id%>
 Title:<%= f.text_field :title%><br>
 Content:<%= f.text_area :content%><br>
@@ -24,14 +24,14 @@ Rating:<%= f.number_field :rating, :placeholder => 'number from 1-5'%>
 <%end%>
 
 
-<% if @move.comments.count < 2%>
-<p>There is <%= pluralize(@move.comments.count, 'comment')%></p>
+<% if @move_tutorial.comments.count < 2%>
+<p>There is <%= pluralize(@move_tutorial.comments.count, 'comment')%></p>
 <%else%>
-<p>There are <%= pluralize(@move.comments.count, 'comment')%></p>
+<p>There are <%= pluralize(@move_tutorial.comments.count, 'comment')%></p>
 <%end%>
 
 
-<%= link_to 'view all comments', category_move_tutorial_comments_path(@move.category_id, @move.id)%>
+<%= link_to 'view all comments', category_move_tutorial_comments_path(@move_tutorial.category_id, @move_tutorial.id)%>
 
  
 
