@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     helper_method :logged_in?, :current_user, :create_session
 
+    private
+
     def current_user
       if session[:user_id]
         @user = User.find(session[:user_id])
@@ -9,6 +11,7 @@ class ApplicationController < ActionController::Base
   
     def logged_in?
       !!current_user
+      # session[:user_id] ? true : false
     end
   
     def authorized
@@ -17,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def unauthorized_user
-      @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+      # @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
       redirect_to '/'
       flash[:notice] = "You are not authorized to edit this!!"
     end

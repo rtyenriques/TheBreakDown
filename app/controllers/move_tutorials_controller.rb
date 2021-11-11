@@ -14,7 +14,7 @@ class MoveTutorialsController < ApplicationController
         @move_tutorial = MoveTutorial.new(move_params)
         @move_tutorial.user_id = current_user.id
           if @move_tutorial.save
-            @user = @move_tutorial.user
+            # @user = @move_tutorial.user
             redirect_to @move_tutorial
           else
             render :new
@@ -27,12 +27,10 @@ class MoveTutorialsController < ApplicationController
         end
 
         def edit
-            # byebug
             if logged_in? && @move_tutorial.user_id == current_user.id
                 render :edit
             else
                 unauthorized_user
-                # redirect_to move_tutorial_path(@move_tutorial)
             end
            
         end
@@ -41,7 +39,6 @@ class MoveTutorialsController < ApplicationController
 
 
         def update
-           
           if @move_tutorial.update(move_params)
             redirect_to move_tutorial_path(@move_tutorial.id)
           else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_31_222557) do
+ActiveRecord::Schema.define(version: 2021_11_11_081825) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_31_222557) do
   create_table "move_tutorials", force: :cascade do |t|
     t.string "name"
     t.string "difficulty"
-    t.string "learn_time"
+    t.integer "learn_time"
     t.text "description"
     t.integer "user_id", null: false
     t.integer "category_id", null: false

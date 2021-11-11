@@ -16,6 +16,8 @@ Desciption: <%= @move_tutorial.description%><br>
 <h4>Add a comment</h4>
 
 <%= form_for @move_tutorial.comments.build do |f|%>
+
+
 <%=f.hidden_field :move_tutorial_id%>
 Title:<%= f.text_field :title%><br>
 Content:<%= f.text_area :content%><br>

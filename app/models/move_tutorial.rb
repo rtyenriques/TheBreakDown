@@ -9,11 +9,12 @@ class MoveTutorial < ApplicationRecord
   
     validates :name, uniqueness: true
     validates :name, presence: true
-    # validates :difficulty, inclusion: {in: %w(beginner intermediate advance)}
+    validates :difficulty, inclusion: {in: %w(beginner intermediate advance)}
 
     def self.difficulty_beginner
       self.where(difficulty: 'beginner')
     end
   
+    
   end
   
