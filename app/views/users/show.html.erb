@@ -14,19 +14,18 @@
 <%end%>
 </ul>
 
-<h3>Moves Tutorials you commented on</h3>
-<%@user.comments.each do |m|%>
-<li><%=link_to m.move_tutorial.name, user_move_tutorial_path(@user.id, m.id)%></li>
-<%end%>
+
 
 
 
 <h3>Your Comments</h3>
 <% @user.comments.each do |c|%>
-<ul>
-<li><%= c.title %></li>
-<li><%= c.move_tutorial.name%></li>
-</ul>
+<p>
+Move Tutorial: <%=link_to c.move_tutorial.name, move_tutorial_path(c.move_tutorial)%><br>
+Title: <%=c.title.capitalize %><br>
+Content: <%= c.content%><br>
+Rating: <%= c.rating%>
+</p>
 <%end%>
 
 <br><%=link_to 'Log Out', "/logout", method: :delete %>

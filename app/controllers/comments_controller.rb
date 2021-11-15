@@ -1,18 +1,23 @@
 class CommentsController < ApplicationController
-  before_action :authorized
+  before_action :authorized, only: [:index, :show]
 
     def index
         @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
         @comments = Comment.all
      end
 
+     def new
+      @comment = Comment.new
+     end
+
     def create  
-      comment = Comment.new(comment_params)
-      comment.user_id = session[:user_id]
-      if comment.save
-        redirect_to move_tutorial_comments_path(comment.move_tutorial_id)
+      @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+      @comment = Comment.new(comment_params)
+      @comment.user_id = current_user.id
+      if @comment.save
+        redirect_to move_tutorial_comments_path(@comment.move_tutorial_id)
       else
-        redirect_to '/home'
+       
       end
     end
   

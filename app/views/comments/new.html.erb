@@ -1,5 +1,5 @@
 <h2>Post a comment</h2>
-<%=form_for :comment do |f|%>
+<%=form_for @comment do |f|%>
 <%= f.hidden_field :move_tutorial_id%><br>
 Title<%= f.text_field :title%><br>
 

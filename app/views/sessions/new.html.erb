@@ -1,5 +1,7 @@
 <%= form_for :user do |f|%>
 
+
+
 <h2>User Login</h2>
 <p> Find Username<%= f.collection_select :user_id, User.all, :id, :username%></p>
 <p>Password:<%= f.password_field :password%></p>

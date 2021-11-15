@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
 
     def omniauth
         @user = User.from_omniauth(auth)
-        
+        # byebug
       if @user
         create_session
         # redirect_to profile_path(@user.id)

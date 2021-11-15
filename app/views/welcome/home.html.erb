@@ -1,7 +1,10 @@
 <center><h1>Welcome to The Break Down</h1></center>
 
+<% if current_user == nil %>
+
 <% flash.each do |type, msg| %>
 <%= msg %>
+<%end%>
 <%end%>
 
 

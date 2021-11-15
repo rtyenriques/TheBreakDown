@@ -3,17 +3,19 @@
 Category: <%= link_to @move_tutorial.category.name, category_path(@move_tutorial.category)%><br>
 Difficulty: <%= @move_tutorial.difficulty%><br>
 Learn Time: <%= @move_tutorial.learn_time%><br>
-Desciption: <%= @move_tutorial.description%><br>
+Description: <%= @move_tutorial.description%><br>
+Created By: <%= @move_tutorial.user.username%><br>
 
 <% if @move_tutorial.user_id == @user%>
-<%= link_to 'edit', edit_move_tutorial_path(@move_tutorial)%>
-<%= link_to 'delete', move_tutorial_path(@move_tutorial), method: :delete%>
+<%= link_to 'Edit Move', edit_move_tutorial_path(@move_tutorial)%><br>
+<%= link_to 'Delete Move', move_tutorial_path(@move_tutorial), method: :delete%>
 
 <%end%>
 
 
 
 <h4>Add a comment</h4>
+
 
 <%= form_for @move_tutorial.comments.build do |f|%>
 
