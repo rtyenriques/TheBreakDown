@@ -9,7 +9,7 @@ Prerequisites
 2. You have a code editor installed unless opening from terminal
 2. You have an understanding of basic terminal use  
 
-Installalation
+Installation
 ---------------
 1. Clone this repo in respected folder using terminal, git clone "https://github.com/rtyenriques/TheBreakDown.git"
 2. cd into cloned file and run bundle install
