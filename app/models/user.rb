@@ -9,9 +9,12 @@ class User < ApplicationRecord
             end
     end
 
+    
+    has_many :move_tutorials, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :move_tutorials, through: :comments
-    has_many :move_tutorials, dependent: :destroy
+    has_many :categories, through: :move_tutorials
+    
 
     validates :email, uniqueness: true
     validates :username, :email, :password, presence: true

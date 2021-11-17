@@ -1,0 +1,31 @@
+<br>
+<h1>Create a new Move Tutorial</h1>
+
+<%= form_for(@move_tutorial) do |f| %>
+<% if @move_tutorial.errors.any?%>
+<div id = 'error_explanation'>
+<h2><%= pluralize(@move_tutorial.errors.count, "error") %> prohibited this from being saved:</h2>
+<ul>
+<% @move_tutorial.errors.full_messages.each do |m|%>
+<li style="color: red;"><%= m %></li>
+<%end%>
+</ul>
+</div>
+<%end%>
+
+  
+
+<br>
+
+Category <%= @move_tutorial.category.name%><br>
+<%=f.hidden_field :category_id%>
+<%= f.label :name %>
+<%= f.text_field :name, :size=>"30" %><br>
+<%- f.label :difficulty %>
+Difficulty<%= f.text_field :difficulty, :size=>"30",  :placeholder => 'beginner, intermediate or hard' %><br>
+<%= f.label :learn_time %>
+<%= f.number_field :learn_time, :placeholder => 'number of days' %><br>
+<%= f.label :description %>
+<%= f.text_area :description, size: "50x10"  %><br>
+<%= f.submit%>
+<%end%>

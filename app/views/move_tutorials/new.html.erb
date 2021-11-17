@@ -1,3 +1,7 @@
+<%if params[:category_id] == nil%>
 <%= form_tag move_tutorials_path do%>
 <%= render 'form'%>
+<%end%>
+<%else%>
+<%= render 'form_two'%>
 <%end%>
