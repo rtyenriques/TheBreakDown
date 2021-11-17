@@ -1,8 +1,8 @@
 <h2>Welcome <%= @user.username.capitalize %></h2>
 
 <% if @user.id == @session%>
-<%= link_to 'edit', edit_user_path%>
-<%= link_to 'delete', user_path(@user), method: :delete, data: {confirm: "really"} %>
+<%= link_to 'edit profile', edit_user_path%><br>
+<%= link_to 'delete profile', user_path(@user), method: :delete, data: {confirm: "really"} %>
 <%end%>
 
 <h3>Moves you created</h3>
@@ -28,7 +28,7 @@ Rating: <%= c.rating%>
 </p>
 <%end%>
 
-<br><%=link_to 'Log Out', "/logout", method: :delete %>
+
 
 <%# create a new move create a new comment from comment new page no nest and see if it shows up as new instance
 on user show page %>

@@ -1,7 +1,6 @@
 <center><h1>Welcome to The Break Down</h1></center>
 
 <% if current_user == nil %>
-
 <% flash.each do |type, msg| %>
 <%= msg %>
 <%end%>
@@ -12,5 +11,11 @@
 <% if logged_in? %>
 <p>You can now create your own move tutorials and comment on others!</p>
 <% else%>
+<p><b>Do you love to break and teach?</b>
+<p><b>Do you have moves that only you can do?</b></p>
+<p><b>Do you want to be an innovator and have your moves distinguished to you.</b></p>
+<p>Use the break down and create move tutorials for the future generations. 
+Or even if you are here because you want to be a student and learn how to breakdance. You can learn the vocabulary for all the breaking moves and how to do them. Whether your a beginner, intermediate or advance I’m sure the break down will teach you a thing or two. Just remember we are always a student.</p>
 <p>Please sign up or login to continue to access this website</p>
 <%end%>
+

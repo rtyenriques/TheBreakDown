@@ -1,5 +1,7 @@
 <h2><%=@move_tutorial.name.capitalize %></h2>
 
+
+
 Category: <%= link_to @move_tutorial.category.name, category_path(@move_tutorial.category)%><br>
 Difficulty: <%= @move_tutorial.difficulty%><br>
 Learn Time: <%= @move_tutorial.learn_time%><br>

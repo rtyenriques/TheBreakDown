@@ -29,5 +29,8 @@ class ApplicationController < ActionController::Base
       session[:user_id] = @user.id
     end
 
+    def move
+      @move_tutorial = MoveTutorial.find_by_id(params[:move_tutorial_id])
+    end
     
 end
