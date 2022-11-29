@@ -1,11 +1,33 @@
+
+<div class="container text-center">
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="#">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/beginner_moves">Beginner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Intermediate</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">Advance</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">My Moves</a>
+  </li>
+</ul>
+
 <p>There are <%= pluralize(@move_tutorials.count, 'moves')%></p>
 
 <% @move_tutorials.each do |m|%>
-<ul>
+<ul class="list-group">
 
-<li><%=link_to m.name, move_tutorial_path(m)%> by: <%=m.user.username%> <br>
+<li class="list-group-item"><%=link_to m.name, move_tutorial_path(m)%> by: <%=m.user.username%> <br>
 Created on: <%= m.created_at.strftime("%B %d, %Y at %H:%M")%></li>
 </ul>
 <%end%>
 
-<%= link_to 'all beginner moves', '/beginner_moves'%>
+
+</div>

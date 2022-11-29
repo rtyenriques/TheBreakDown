@@ -272,3 +272,23 @@ client id 648869838446-42kltonlumer6et0d7300bfso8j07h0p.apps.googleusercontent.c
 secret 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
 
 <%= link_to 'add a comment', new_move_tutorial_comment_path(@move_tutorial)%>
+
+oldnavbar
+  <nav>
+    <% if logged_in? %>
+    <center>Logged in as: <strong><%= current_user.email %> </strong><br></center><br>
+    <a href="/">Home</a> |
+    <a href="/users/<%=current_user.id%>">Profile</a> |
+    <a href="/categories">Categories</a> |
+    <a href="/move_tutorials">View Move Tutorials</a> |
+    <a href="/move_tutorials/new">Create Move Tutorials</a> |
+    <%= link_to 'Logout', '/logout', method: "delete"%></center>
+    
+     
+    <% else %>
+     <center><a href="/">Home</a> |
+    <a href="/signup">Sign Up</a> | 
+    <a href="/login">Login</a>
+    <%= button_to "Sign in with Google", '/auth/google_oauth2'  %> 
+    <% end %>
+    </nav>

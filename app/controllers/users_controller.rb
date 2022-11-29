@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+    
+
     def new
         if logged_in?
             redirect_to profile_path(session[:user_id])
         else
         @user = User.new
         end
-        
-
     end
 
     def create
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+        # byebug
     end
 
 

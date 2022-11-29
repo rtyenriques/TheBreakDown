@@ -1,4 +1,8 @@
-<%= form_tag user_path(@user), method: 'put' do%>
-<%= render 'form'%>
 
+<%= form_tag user_path(@user), method: 'put' do%>
+<% if @user.uid.nil?%>
+<%= render 'form'%>
+<%else%>
+<%= render 'form2'%>
+<%end%>
 <%end%>

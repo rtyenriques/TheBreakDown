@@ -197,6 +197,7 @@ GEM
     regexp_parser (2.1.1)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    rufo (0.13.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -250,6 +251,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-20
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -265,6 +267,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rufo
   sass-rails (>= 6)
   selenium-webdriver
   spring
@@ -279,4 +282,4 @@ RUBY VERSION
    ruby 2.6.1p33
 
 BUNDLED WITH
-   2.2.24
+   2.3.23

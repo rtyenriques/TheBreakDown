@@ -1,8 +1,12 @@
-<h1><%= @category.name %></h1>
+<h1 class="text-center"><%= @category.name %></h1>
+<div class="container text-center">
 <% @category.move_tutorials.each do |m|%>
-<ul>
-<li><%= link_to m.name, category_move_tutorial_path(@category, m) %> by: <%=link_to m.user.username, profile_path(m.user.id)%></li>
+<ul class="list-group">
+<li class="list-group-item"><%= link_to m.name, category_move_tutorial_path(@category, m) %> by: <%=link_to m.user.username, profile_path(m.user.id)%></li>
 </ul>
-<%end%><br>
+<%end%>
 
-<br><%= link_to "Create a New Move Tutorial", new_category_move_tutorial_path(@category)%>
+
+<%= link_to "Create a New Move Tutorial", new_category_move_tutorial_path(@category), class:"mt-5 btn btn-primary"%>
+
+</div>

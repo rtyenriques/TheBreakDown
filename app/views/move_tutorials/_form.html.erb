@@ -1,6 +1,4 @@
-<br>
-<h1>Create a new Move Tutorial</h1>
-
+<div class="container text-center">
 <%= form_for(@move_tutorial) do |f| %>
 <% if @move_tutorial.errors.any?%>
 <div id = 'error_explanation'>
@@ -13,19 +11,33 @@
 </div>
 <%end%>
 <div class = "field<%= 'field_with_errors' if @move_tutorial.errors.any? %>">
-  <%= f.label "Category:" %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
-  
+<h1 class="text-center mt-2">Create a Move</h1>
+<div class="container">
 
-<br>
+<div class="mb-2">
+  <%= f.label "Category:", class:"form-label" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true, class:"form-control" %>
+</div>
 
-<%= f.label :name %>
-<%= f.text_field :name, :size=>"30" %><br>
-<%- f.label :difficulty %>
-Difficulty<%= f.text_field :difficulty, :size=>"30",  :placeholder => 'beginner, intermediate or hard' %><br>
-<%= f.label :learn_time %>
-<%= f.number_field :learn_time, :placeholder => 'number of days' %><br>
-<%= f.label :description %>
-<%= f.text_area :description, size: "50x10"  %><br>
-<%= f.submit%>
+<div class="mb-1">
+<%= f.label :name, class:"form-label" %>
+<%= f.text_field :name, :size=>"30", class:"form-control"%><br>
+</div>
+
+<div class="mb-1">
+<%- f.label :difficulty, class:"form-label" %>
+Difficulty<%= f.text_field :difficulty, :size=>"30",  :placeholder => 'beginner, intermediate or advance', class:"form-control" %><br>
+</div>
+
+<div class="mb-1">
+<%= f.label :learn_time, class:"form-label" %>
+<%= f.number_field :learn_time, :placeholder => 'number of days', class:"form-control" %><br>
+</div>
+
+<div class="mb-1">
+<%= f.label :description, class:"form-label" %>
+<%= f.text_area :description, size: "50x10", class:"form-control"  %><br>
+</div>
+
+<%= f.submit class:"btn btn-primary"%>
 <%end%>

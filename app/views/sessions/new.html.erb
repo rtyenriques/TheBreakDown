@@ -1,14 +1,31 @@
+<br>
+
+<div class="container border border-dark text-center">
+
 <%= form_for :user do |f|%>
-
-
-
+<br>
 <h2>User Login</h2>
-<p> Find Username<%= f.collection_select :user_id, User.all, :id, :username%></p>
-<p>Password:<%= f.password_field :password%></p>
-<p>Password Confirmation:<%= f.password_field :password_confirmation%></p>
-<%= f.submit 'Login'%>
+<br>
+<div class="mb-2">
+<%= f.label "Find Username", class:"form-label" %>
+<%= f.collection_select :user_id, User.all, :id, :username, class:"form-control"%>
+</div>
+
+<div class="mb-2">
+<%= f.label "Password", class:"form-label" %>
+<%= f.password_field :password, class:"form-control"%>
+</div>
+
+<div class="mb-2">
+<%= f.label "Password Confirmation", class:"form-label" %>
+<%= f.password_field :password_confirmation, class:"form-control"%>
+</div>
+
+<%= f.submit 'Login', class:"btn btn-primary"%>
 
 
 <%end%>
 
 <p><%= flash[:error] %></p>
+
+</div>
