@@ -1,20 +1,33 @@
-<br><%= link_to 'go back to move tutorial', move_tutorial_path(params[:move_tutorial_id])%>
+<%= link_to "go back to move tutorial", move_tutorial_path(params[:move_tutorial_id]) %>
 
 <br>
-<h2>Comments for <%=@move_tutorial.name.capitalize%></h2>
+<div class="mt-2 container text-center">
+<h2>Comments for <%= @move_tutorial.name.capitalize %></h2>
 
-<% @comments.each do |c|%>
-<% if c.move_tutorial_id == params[:move_tutorial_id]%>
+<div class="mt-2">
+<% if @move_tutorial.comments.count < 2 %>
+<p>There is <%= pluralize(@move_tutorial.comments.count, "comment") %></p>
+<% else %>
+<p>There are <%= pluralize(@move_tutorial.comments.count, "comment") %></p>
+<% end %>
+</div>
+
+<% @comments.each do |c| %>
+<% if c.move_tutorial_id == params[:move_tutorial_id] %>
 <%= c.title %>
-<%else%>
+<% else %>
 
-<%end%>
-<%end%>
+<% end %>
+<% end %>
 
-<% @move_tutorial.comments.each do |c|%>
-<p><%= c.title%><br>
-<%= c.content%><br>
-<%= c.rating%><br>
-<%="by: #{c.user.username}"%></p>
+<% @move_tutorial.comments.each do |c| %>
 
-<%end%>
+<div class="mb-3 container border border-dark">
+<%= c.title %><br>
+<%= c.content %><br>
+<%= c.rating %><br>
+<%= "by: #{c.user.username}" %>
+</div>
+
+<% end %>
+</div>

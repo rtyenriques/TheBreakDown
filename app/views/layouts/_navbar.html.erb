@@ -12,7 +12,7 @@
           </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%=current_user.id%>">Profile</a>
+          <a class="nav-link" href="/users/<%= current_user.id %>">Profile</a>
         </li>
 
         <li class="nav-item">
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-          <div class="nav-link"> <%= link_to 'Logout', '/logout', method: "delete"%> </div>
+          <div class="nav-link"> <%= link_to "Logout", "/logout", method: "delete" %> </div>
         </li>
 
        <% else %>
@@ -57,7 +57,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link"><%= button_to "Sign in with Google", '/auth/google_oauth2'  %> </a>
+            <a class="nav-link"><%= button_to "Sign in with Google", "/auth/google_oauth2" %> </a>
           </li>
 
           

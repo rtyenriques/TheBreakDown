@@ -1,42 +1,54 @@
-<h2>Welcome <%= @user.username.capitalize %></h2>
+<div class="container text-center">
 
-<% if @user.id == @session%>
-<%= link_to 'edit profile', edit_user_path%><br>
-<%= link_to 'delete profile', user_path(@user), method: :delete, data: {confirm: "really"} %>
-<%end%>
+<h1>Welcome <%= @user.username %></h1>
 
+<% if @user.id == @session %>
+<%= link_to "edit profile", edit_user_path %><br>
+<%= link_to "delete profile", user_path(@user), method: :delete, data: { confirm: "Confirm Account Deletion" }, class: "link-danger" %>
+<% end %>
+
+<div class="mt-3">
 <h3>Moves you created</h3>
-<ul>
-<% @move_tutorials.each do |m|%>
+</div>
+<ul class="list-group">
+<% @move_tutorials.each do |m| %>
 <% if m.user_id == @user.id %>
-<li><%=link_to m.name, move_tutorial_path(m)%></li>
-<%end%>
-<%end%>
+<li class="list-group-item"><%= link_to m.name, move_tutorial_path(m), class: "link-secondary" %></li>
+<% end %>
+<% end %>
 </ul>
 
+<div class="mt-3">
 <h3>Most Categories</h3>
-<ul>
-<% @user.categories.uniq.each do |m|%>
+<ul class="list-group">
+<% @user.categories.uniq.each do |m| %>
 
-<li><%= m.name %></li>
-<%end%>
+<li class="list-group-item"><%= m.name %></li>
+<% end %>
 </ul>
 
 
 
 
-
+<div class="mt-3">
 <h3>Your Comments</h3>
-<% @user.comments.each do |c|%>
-<p>
-Move Tutorial: <%=link_to c.move_tutorial.name, move_tutorial_path(c.move_tutorial)%><br>
-Title: <%=c.title.capitalize %><br>
-Content: <%= c.content%><br>
-Rating: <%= c.rating%>
-</p>
-<%end%>
+</div>
+
+
+<% @user.comments.each do |c| %>
+<div class="container text-center card" style="width: 18rem;">
+ <div class="card-body">
+
+Move Tutorial: <%= link_to c.move_tutorial.name, move_tutorial_path(c.move_tutorial) %><br>
+Title: <%= c.title.capitalize %><br>
+Content: <%= c.content %><br>
+Rating: <%= c.rating %>
+</div>
+
+</div>
+<% end %>
 
 
 
-<%# create a new move create a new comment from comment new page no nest and see if it shows up as new instance
-on user show page %>
+
+</div>

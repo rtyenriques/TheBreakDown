@@ -18,12 +18,15 @@ class SessionsController < ApplicationController
         @user= User.from_omniauth(auth)
         create_session
         redirect_to profile_path(@user.id)
-      else
-       
-        return head(:forbidden) unless 
+      elsif
+        
+        # return head(:forbidden) unless 
         @user.authenticate(params[:user][:password]) 
         create_session
         redirect_to profile_path(@user.id)
+      else
+        flash[:error] = "Sorry, password was incorrect. Please try again."
+        redirect_to '/login'
       end
     end
 

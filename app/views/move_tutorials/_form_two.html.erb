@@ -1,4 +1,5 @@
-<div class="container text-center">
+<br>
+<div class="container border border-dark text-center">
 <%= form_for(@move_tutorial) do |f| %>
 <% if @move_tutorial.errors.any?%>
 <div id = 'error_explanation'>
@@ -11,6 +12,7 @@
 </div>
 <%end%>
 <div class = "field<%= 'field_with_errors' if @move_tutorial.errors.any? %>">
+
 <h1 class="text-center mt-2">Create a Move</h1>
 <div class="container">
 

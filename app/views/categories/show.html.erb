@@ -1,5 +1,7 @@
-<h1 class="text-center"><%= @category.name %></h1>
-<div class="container text-center">
+<div class="mt-4 container text-center">
+
+<h1><%= @category.name %></h1>
+
 <% @category.move_tutorials.each do |m|%>
 <ul class="list-group">
 <li class="list-group-item"><%= link_to m.name, category_move_tutorial_path(@category, m) %> by: <%=link_to m.user.username, profile_path(m.user.id)%></li>
