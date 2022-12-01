@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
         create_session
         redirect_to profile_path(@user.id)
       elsif
-        
         # return head(:forbidden) unless 
         @user.authenticate(params[:user][:password]) 
         create_session
@@ -35,17 +34,17 @@ class SessionsController < ApplicationController
 
     def destroy
       session.delete(:user_id)
-      flash[:notice] = "You have successfully logged out."
+      
       redirect_to '/' 
+      flash[:error] = "You have successfully logged out."
     end 
 
     def omniauth
         @user = User.from_omniauth(auth)
-        # byebug
       if @user
         create_session
         # redirect_to profile_path(@user.id)
-        flash[:notice] = "You have successfully logged in."
+        flash[:error] = "You have successfully logged in."
         redirect_to '/'
       else 
         redirect_to '/login'

@@ -21,6 +21,14 @@ class CommentsController < ApplicationController
        
       end
     end
+
+    
+
+    def destroy
+      byebug
+      @comment.destroy
+      redirect comments_path
+   end
   
     
     

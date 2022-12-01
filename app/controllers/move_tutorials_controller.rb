@@ -42,7 +42,8 @@ class MoveTutorialsController < ApplicationController
 
         def update
           if @move_tutorial.update(move_params)
-            redirect_to move_tutorial_path(@move_tutorial.id)
+            redirect_to move_tutorial_path(@move_tutorial.id), notice: "update successful"
+
           else
             render :edit
           end

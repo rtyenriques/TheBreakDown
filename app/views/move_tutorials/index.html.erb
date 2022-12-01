@@ -22,11 +22,10 @@
 <p>There are <%= pluralize(@move_tutorials.count, 'moves')%></p>
 
 <% @move_tutorials.each do |m|%>
-<ul class="list-group">
-
-<li class="list-group-item"><%=link_to m.name, move_tutorial_path(m)%> by: <%=m.user.username%> <br>
-Created on: <%= m.created_at.strftime("%B %d, %Y at %H:%M")%></li>
-</ul>
+  <ul class="list-group">
+    <li class="list-group-item"><%=link_to m.name, move_tutorial_path(m)%> by: <%=m.user.username%> <br>
+     Created on: <%= m.created_at.strftime("%B %d, %Y at %H:%M")%></li>
+  </ul>
 <%end%>
 
 

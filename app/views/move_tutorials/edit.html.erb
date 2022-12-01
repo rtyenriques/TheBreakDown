@@ -1,7 +1,6 @@
 <% flash.each do |type, msg| %>
-<%= msg %>
+  <%= msg %>
 <%end%>
-
 
 <%= form_tag move_tutorial_path(@move_tutorial), method: 'put' do%>
 <%= render 'form'%>

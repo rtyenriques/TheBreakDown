@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
     def new
         if logged_in?
-            redirect_to profile_path(session[:user_id])
+          redirect_to profile_path(session[:user_id])
         else
-        @user = User.new
+          @user = User.new
         end
     end
 
@@ -22,13 +22,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        authorized
-        @move_tutorials = MoveTutorial.all
-        @session = session[:user_id]  
+      authorized
+      @move_tutorials = MoveTutorial.all
+      @session = session[:user_id]  
     end
 
     def edit
-        # byebug
     end
 
 
